@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    // Global variable to assign unique identifiers to each todo
+    let globalId = 1;
+
+    // Function to add a new todo to the state
+    function addTodo() {
+      // Initialize an empty array to store todos
+      let todoState = [];
+
+      // Get values from input fields
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+
+      // Add a new todo object to the state array
+      todoState.push({
+        title: title,
+        description: description,
+        id: globalId++
+      });
+
+      // Call the function to update the state and render the todos
+      updateState(todoState);
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Input fields for todo title and description -->
+  <input type="text" id="title" placeholder="Todo title"></input> <br /><br />
+  <input type="text" id="description" placeholder="Todo description"></input> <br /><br />
+
+  <!-- Button to trigger the addTodo function -->
+  <button onclick="addTodo()">Add todo</button>
+
+  <!-- Container to display the list of todos -->
+  <div id="todos"></div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Magic</title>
+  </head>
+  <body>
+  <!-- Our HTML with a button and an empty paragraph -->
+  <button id="simpleButton">Click me!</button>
+  <p id="output"></p>
+
+  <!-- Our JavaScript -->
+  <script>
+  // Get the button and the paragraph by their IDs
+  const simpleButton = document.getElementById('simpleButton');
+  const outputParagraph = document.getElementById('output');
+
+  // Add a Click event listener to the button
+  simpleButton.addEventListener('click', function() {
+    // Change the content of the paragraph when the button is clicked
+    outputParagraph.textContent = 'Button was clicked!';
+  });
+
+  </script>
+  </body>
+</html>
