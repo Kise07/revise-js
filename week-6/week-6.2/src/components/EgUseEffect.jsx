@@ -1,0 +1,39 @@
+import { useEffect, useState } from "react"
+
+const DataFetcher = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    // Effect will run after the component is mounted
+    const fetchData = async () => {
+      try {
+        // Simulating a data fetching operation
+        const response = await fetch('');
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    };
+
+    fetchData();
+
+    // Effect cleanup (will run before unmounting)
+    return () => {
+      console.log('Component will unmount. Cleanup here.');
+    };
+  }, []); // Empty dependency array means the effect runs once after mount
+
+  return (
+    <div>
+      <h2>useEffect fn:</h2>
+      {data ? (
+        <p>Data: {data}</p>
+      ) : (
+        <p>Loading data...</p>
+      )}
+    </div>
+  );
+};
+
+export default DataFetcher;
